@@ -11,10 +11,6 @@ function add(){
     document.getElementById("add-panel").style.display = "flex";
 }
 
-function compute(){
-
-}
-
 function clearAll(){
     localStorage.setItem("savedData", "");
     window.location.reload();
