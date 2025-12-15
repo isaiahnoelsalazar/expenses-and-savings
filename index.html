@@ -16,7 +16,7 @@
                 margin: 0;
                 padding: 0 8px;
             }
-            #add-panel {
+            #add-panel, #compute-panel {
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -26,6 +26,9 @@
                 display: none;
                 align-items: center;
                 justify-content: center;
+            }
+            #compute-panel > div > p {
+                margin: 0;
             }
             button {
                 background-color: black;
@@ -64,28 +67,44 @@
                 <input type="text" id="item-name" placeholder="Name">
                 <input type="number" id="item-price" placeholder="Price">
                 <input type="text" id="item-reason" placeholder="Reason">
+                <div style="display: flex; gap: 8px; justify-content: flex-start;">
+                    <label for="radio-expense">Expense</label>
+                    <input type="radio" name="radio-expense" id="radio-expense">
+                    <label for="radio-saving">Saving</label>
+                    <input type="radio" name="radio-saving" id="radio-saving">
+                </div>
                 <div style="display: flex; gap: 8px; justify-content: flex-end;">
                     <button onclick="cancelAddPanel()">Cancel</button>
                     <button onclick="confirmAddPanel()">Confirm</button>
                 </div>
             </div>
         </div>
+        <div id="compute-panel">
+            <div style="background-color: white; padding: 0 8px; border-radius: 12px; display: flex; flex-direction: column; gap: 8px;">
+                <h1 style="margin: 16px 0 0 0;">Total</h1>
+                <p id="total-expenses">Total expenses:</p>
+                <p id="total-savings">Total savings:</p>
+                <p id="total-money">Total money:</p>
+                <div style="display: flex; gap: 8px; justify-content: flex-end;">
+                    <button onclick="closeComputePanel()">Close</button>
+                </div>
+            </div>
+        </div>
         <button onclick="add()">Add</button>
         <button onclick="compute()">Compute All</button>
-        <table>
+        <button onclick="clearAll()">Clear All</button>
+        <table id="main-table">
             <tr>
                 <th>Date</th>
                 <th>Item</th>
                 <th>Price</th>
                 <th>Reason</th>
             </tr>
-            <tr>
-                <td>2025-12-15</td>
-                <td>Test</td>
-                <td class="price">100</td>
-                <td>Just a test</td>
-            </tr>
         </table>
     </body>
-    <script src="index.js"></script>
+    <script>
+        let script = document.createElement("script");
+        script.src = "index.js?t=" + new Date().getTime();
+        document.body.appendChild(script);
+    </script>
 </html>
