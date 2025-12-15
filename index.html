@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=7">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Expenses and Savings</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                font-family: 'Courier New', Courier, monospace;
+            }
+            body {
+                margin: 0;
+                padding: 0 8px;
+            }
+            #add-panel {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background-color: #00000088;
+                display: none;
+                align-items: center;
+                justify-content: center;
+            }
+            button {
+                background-color: black;
+                color: white;
+                padding: 16px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            button:hover {
+                background-color: #000000CC;
+            }
+            h1 {
+                margin: 0;
+            }
+            button {
+                margin: 8px 0;
+            }
+            table, th, td {
+                border: solid black 1px;
+            }
+            th, td {
+                padding: 8px;
+                text-align: center;
+            }
+            .price {
+                text-align: end;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="add-panel">
+            <div style="background-color: white; padding: 0 8px; border-radius: 12px; display: flex; flex-direction: column; gap: 8px;">
+                <h1 style="margin: 16px 0 0 0;">Add item</h1>
+                <input type="text" id="item-name" placeholder="Name">
+                <input type="number" id="item-price" placeholder="Price">
+                <input type="text" id="item-reason" placeholder="Reason">
+                <div style="display: flex; gap: 8px; justify-content: flex-end;">
+                    <button onclick="cancelAddPanel()">Cancel</button>
+                    <button onclick="confirmAddPanel()">Confirm</button>
+                </div>
+            </div>
+        </div>
+        <button onclick="add()">Add</button>
+        <button onclick="compute()">Compute All</button>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Reason</th>
+            </tr>
+            <tr>
+                <td>2025-12-15</td>
+                <td>Test</td>
+                <td class="price">100</td>
+                <td>Just a test</td>
+            </tr>
+        </table>
+    </body>
+    <script src="index.js"></script>
+</html>
